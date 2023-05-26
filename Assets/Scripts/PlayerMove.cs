@@ -22,6 +22,8 @@ public class PlayerMove : MonoBehaviour
     BoxCollider2D boxCollider;
     AudioSource audioSource;
 
+    public int direction = -1;
+
 
     void Awake()
     {
@@ -52,6 +54,13 @@ public class PlayerMove : MonoBehaviour
         if (Input.GetButton("Horizontal"))
         {
             spriteRenderer.flipX = Input.GetAxisRaw("Horizontal") == -1;
+            if (spriteRenderer.flipX)
+            {
+                direction = -1;
+            }
+            else
+                direction = 1;
+            //Debug.Log(direction);
         }
 
         //Animation
