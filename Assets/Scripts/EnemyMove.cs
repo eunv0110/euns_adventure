@@ -91,7 +91,7 @@ public class EnemyMove : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void itemDrop()
+    public void itemDrop()
     {
         int ran = Random.Range(0, 10);
 
