@@ -1787,6 +1787,7 @@ MonoBehaviour:
   attack2: {fileID: 0}
   mujeok: {fileID: 0}
   big: {fileID: 0}
+  key: {fileID: 0}
 --- !u!95 &820675077
 Animator:
   serializedVersion: 5
@@ -2272,6 +2273,7 @@ MonoBehaviour:
   attack2: {fileID: 0}
   mujeok: {fileID: 0}
   big: {fileID: 0}
+  key: {fileID: 0}
 --- !u!95 &946385607
 Animator:
   serializedVersion: 5
@@ -3874,6 +3876,7 @@ MonoBehaviour:
   attack2: {fileID: 371309943168241197, guid: b7d54fb49b78cfc4f922eac005ae2a8a, type: 3}
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
+  key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
 --- !u!114 &1388677135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3886,6 +3889,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0795d46ae7b3d3849a3b39ebf7e9d487, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyMove: {fileID: 820675076}
+  enemy: {fileID: 1388677128}
   enemyHealth: 3
 --- !u!1 &1399698856
 GameObject:

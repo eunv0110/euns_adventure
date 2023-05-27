@@ -12,6 +12,7 @@ TagManager:
   - Attack1
   - Mujeok
   - Big
+  - Key
   layers:
   - Default
   - TransparentFX

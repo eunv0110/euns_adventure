@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
 
     public float maxSpeed;
     public float jumpPower;
+    private int keyNumber;
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
@@ -24,6 +25,7 @@ public class PlayerMove : MonoBehaviour
 
     public int direction = -1;
 
+    private SpriteRenderer spriteSetting;
 
     void Awake()
     {
@@ -34,6 +36,10 @@ public class PlayerMove : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
     }
 
+    void Start()
+    {
+        spriteSetting = GetComponent<SpriteRenderer>();
+    }
 
     void Update()
     {
@@ -130,27 +136,28 @@ public class PlayerMove : MonoBehaviour
         }
         if (collision.gameObject.CompareTag("Attack1"))
         {
-            Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
             //공격1
         }
         else if (collision.gameObject.CompareTag("Attack2"))
         {
-            Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
             //공격2
         }
         else if (collision.gameObject.CompareTag("Mujeok"))
         {
-            Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
             Mujeok();
         }
         else if (collision.gameObject.CompareTag("Big"))
         {
-            Destroy(collision.gameObject);
             collision.gameObject.SetActive(false);
-            Big();
+            StartCoroutine(playerBigEffect());
+        }
+        else if (collision.gameObject.CompareTag("Key"))
+        {
+            collision.gameObject.SetActive(false);
+            keyNumber++;
         }
         else if(collision.gameObject.tag == "Finish")
         {
@@ -162,12 +169,28 @@ public class PlayerMove : MonoBehaviour
 
     void Mujeok()
     {
-
+        gameObject.layer = 10;
+        spriteRenderer.color = new Color(1, 1, 1, 0.4f);
+        Invoke("OffDamaged", 5);
     }
 
-    void Big()
+    IEnumerator playerBigEffect()
     {
+        //isPlayerBig = true;
+        transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
+        yield return new WaitForSeconds(5.0f);
 
+        for (int i = 0; i < 3; i++)
+        {
+            spriteSetting.color = new Color(1, 1, 1, 0.5f);
+            yield return new WaitForSeconds(0.3f);
+            spriteSetting.color = new Color(1, 1, 1, 1.0f);
+            yield return new WaitForSeconds(1.3f);
+        }
+        transform.localScale = new Vector3(1.0f, 1.0f, 1.0f);
+        yield return new WaitForSeconds(0.3f);
+
+        //isPlayerBig = false;
     }
 
     void OnAttack(Transform enemy)

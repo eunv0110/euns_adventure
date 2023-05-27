@@ -16,6 +16,7 @@ public class EnemyMove : MonoBehaviour
     public GameObject attack2;
     public GameObject mujeok;
     public GameObject big;
+    public GameObject key;
 
     void Awake()
     {
@@ -80,11 +81,29 @@ public class EnemyMove : MonoBehaviour
         //Destroy
         Invoke("DeActive", 5);
 
+        itemDrop();
+
+        Destroy(gameObject);
+    }
+
+    void DeActive()
+    {
+        gameObject.SetActive(false);
+    }
+
+    void itemDrop()
+    {
         int ran = Random.Range(0, 10);
 
-        if (ran < 2) //Not Item 20%
+        if (ran < 1) //Not Item 10%
         {
             Debug.Log("Not Item");
+        }
+        else if (ran < 10) //10%
+        {
+            Instantiate(key, transform.position, key.transform.rotation);
+            int dirc = transform.position.x - 10 > 0 ? 1 : -1;
+            rigid.AddForce(new Vector2(1, 1) * 7, ForceMode2D.Impulse);
         }
         else if (ran < 5) //30%
         {
@@ -101,12 +120,8 @@ public class EnemyMove : MonoBehaviour
         else if (ran < 10) //10%
         {
             Instantiate(big, transform.position, big.transform.rotation);
+            int dirc = transform.position.x - 10 > 0 ? 1 : -1;
+            rigid.AddForce(new Vector2(1, 1) * 7, ForceMode2D.Impulse);
         }
-        Destroy(gameObject);
-    }
-
-    void DeActive()
-    {
-        gameObject.SetActive(false);
     }
 }

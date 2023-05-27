@@ -6,8 +6,11 @@ public class BulletContact : MonoBehaviour
 {
     private GameManager gameManager;
     private PlayerMove playerMove;
+    public EnemyMove enemyMove;
 
     private GameObject playerObject;
+    private GameObject enemyObject;
+    public GameObject enemy;
 
     public int enemyHealth;
     // Start is called before the first frame update
@@ -23,6 +26,12 @@ public class BulletContact : MonoBehaviour
         if (gameManagerObject != null)
         {
             gameManager = gameManagerObject.GetComponent<GameManager>();
+        }
+        
+        enemyObject = GameObject.FindWithTag("Enemy");
+        if (enemyObject != null)
+        {
+            enemyMove = enemyObject.GetComponent<EnemyMove>();
         }
     }
 
@@ -40,6 +49,7 @@ public class BulletContact : MonoBehaviour
             {
                 Destroy(collision.gameObject);
                 Destroy(gameObject);
+                //enemyObject.itemDrop();
             }
             else
             {
