@@ -1783,6 +1783,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  mujeok: {fileID: 0}
+  big: {fileID: 0}
 --- !u!95 &820675077
 Animator:
   serializedVersion: 5
@@ -2264,6 +2268,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
+  attack1: {fileID: 0}
+  attack2: {fileID: 0}
+  mujeok: {fileID: 0}
+  big: {fileID: 0}
 --- !u!95 &946385607
 Animator:
   serializedVersion: 5
@@ -3862,6 +3870,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nextMove: 0
+  attack1: {fileID: 5845897187930118040, guid: 480e973f05538e249a614c8241b0ab62, type: 3}
+  attack2: {fileID: 371309943168241197, guid: b7d54fb49b78cfc4f922eac005ae2a8a, type: 3}
+  mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
+  big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
 --- !u!114 &1388677135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4206,7 +4218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1588122036
 Transform:
   m_ObjectHideFlags: 0

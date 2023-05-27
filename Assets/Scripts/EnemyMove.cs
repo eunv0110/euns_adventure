@@ -11,6 +11,12 @@ public class EnemyMove : MonoBehaviour
     BoxCollider2D boxCollider;
 
     public int nextMove;
+
+    public GameObject attack1;
+    public GameObject attack2;
+    public GameObject mujeok;
+    public GameObject big;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -73,6 +79,30 @@ public class EnemyMove : MonoBehaviour
         rigid.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
         //Destroy
         Invoke("DeActive", 5);
+
+        int ran = Random.Range(0, 10);
+
+        if (ran < 2) //Not Item 20%
+        {
+            Debug.Log("Not Item");
+        }
+        else if (ran < 5) //30%
+        {
+            Instantiate(attack1, transform.position, attack1.transform.rotation);
+        }
+        else if (ran < 8) //30%
+        {
+            Instantiate(attack2, transform.position, attack2.transform.rotation);
+        }
+        else if (ran < 9) //10%
+        {
+            Instantiate(mujeok, transform.position, mujeok.transform.rotation);
+        }
+        else if (ran < 10) //10%
+        {
+            Instantiate(big, transform.position, big.transform.rotation);
+        }
+        Destroy(gameObject);
     }
 
     void DeActive()

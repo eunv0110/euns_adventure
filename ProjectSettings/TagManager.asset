@@ -8,6 +8,10 @@ TagManager:
   - Enemy
   - Item
   - Playerbullet
+  - Attack2
+  - Attack1
+  - Mujeok
+  - Big
   layers:
   - Default
   - TransparentFX

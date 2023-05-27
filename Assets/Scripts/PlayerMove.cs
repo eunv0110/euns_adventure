@@ -124,6 +124,33 @@ public class PlayerMove : MonoBehaviour
             //아이템 먹으면 사라짐
             collision.gameObject.SetActive(false);
             PlaySound("ITEM");
+
+            
+
+        }
+        if (collision.gameObject.CompareTag("Attack1"))
+        {
+            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            //공격1
+        }
+        else if (collision.gameObject.CompareTag("Attack2"))
+        {
+            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            //공격2
+        }
+        else if (collision.gameObject.CompareTag("Mujeok"))
+        {
+            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            Mujeok();
+        }
+        else if (collision.gameObject.CompareTag("Big"))
+        {
+            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
+            Big();
         }
         else if(collision.gameObject.tag == "Finish")
         {
@@ -131,6 +158,16 @@ public class PlayerMove : MonoBehaviour
             gameManager.NextStage();
             PlaySound("FINISH");
         }
+    }
+
+    void Mujeok()
+    {
+
+    }
+
+    void Big()
+    {
+
     }
 
     void OnAttack(Transform enemy)
