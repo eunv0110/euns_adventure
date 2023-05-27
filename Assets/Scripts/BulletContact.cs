@@ -6,6 +6,7 @@ public class BulletContact : MonoBehaviour
 {
     private GameManager gameManager;
     private PlayerMove playerMove;
+    private PlayerAttack playerAttack;
     private EnemyMove enemyMove;
 
     private GameObject playerObject;
@@ -19,6 +20,7 @@ public class BulletContact : MonoBehaviour
         playerObject = GameObject.FindWithTag("Player");
         if (playerObject != null)
         {
+            playerAttack = playerObject.GetComponent<PlayerAttack>();
             playerMove = playerObject.GetComponent<PlayerMove>();
         }
 
@@ -44,13 +46,15 @@ public class BulletContact : MonoBehaviour
         {
             if (enemyHealth <= 0)
             {
-                Destroy(collision.gameObject);
+                if(playerAttack.skill!=1) //fire일때는 fire 안사라짐
+                    Destroy(collision.gameObject);
                 Destroy(gameObject);
                 enemyMove.itemDrop();
             }
             else
             {
-                Destroy(collision.gameObject);
+                if (playerAttack.skill != 1)
+                    Destroy(collision.gameObject);
                 enemyHealth--;
             }
         }
