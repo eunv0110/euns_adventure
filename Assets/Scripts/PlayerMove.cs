@@ -55,7 +55,7 @@ public class PlayerMove : MonoBehaviour
         }
         //Stop Speed
         if (Input.GetButtonUp("Horizontal"))
-        {   //normalized: 단위 벡터 1인 상태
+        {   //normalized: ???? ???? 1?? ????
             rigid.velocity = new Vector2(rigid.velocity.normalized.x*0.5f, rigid.velocity.y);
         }
 
@@ -96,7 +96,7 @@ public class PlayerMove : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
             if (rayHit.collider != null)
             {
-                if (rayHit.distance < 1.0f) //타일맵 크기 따라 숫자 조절 필요
+                if (rayHit.distance < 3.0f) //?????? ???? ???? ???? ???? ????
                 {
                     anim.SetBool("isJumping", false);
                 }
@@ -108,7 +108,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            //몬스터보다 위에 있음 + 낙하중 = 밟음 =>Attack
+            //?????????? ???? ???? + ?????? = ???? =>Attack
             if(rigid.velocity.y < 0 && transform.position.y > collision.transform.position.y)
             {
                 OnAttack(collision.transform);
@@ -132,7 +132,7 @@ public class PlayerMove : MonoBehaviour
             else if(isGold)
                 gameManager.stagePoint += 150;
 
-            //아이템 먹으면 사라짐
+            //?????? ?????? ??????
             collision.gameObject.SetActive(false);
             PlaySound("ITEM");
 
@@ -143,13 +143,13 @@ public class PlayerMove : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             playerAttack.skill = 1;
-            //공격1
+            //????1
         }
         else if (collision.gameObject.CompareTag("Attack2"))
         {
             collision.gameObject.SetActive(false);
             playerAttack.skill = 2;
-            //공격2
+            //????2
         }
         else if (collision.gameObject.CompareTag("Mujeok"))
         {
@@ -227,7 +227,7 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(new Vector2(dirc,1)*7, ForceMode2D.Impulse);
 
         // Animation
-        //anim.SetTrigger("doDamaged"); //애니메이션 나중에 추가하기
+        //anim.SetTrigger("doDamaged"); //?????????? ?????? ????????
 
         Invoke("OffDamaged", 3);
         PlaySound("DAMAGED");
