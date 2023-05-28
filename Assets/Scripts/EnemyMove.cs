@@ -52,7 +52,7 @@ public class EnemyMove : MonoBehaviour
 
         //Flip Sprite
         if(nextMove!=0) //가만히 서있을 때는 변화 x
-            spriteRenderer.flipX = nextMove == 1;
+            spriteRenderer.flipX = nextMove != 1;
 
         //Recursive
         float nextThinkTime = Random.Range(2f, 5f);
@@ -108,7 +108,8 @@ public class EnemyMove : MonoBehaviour
             rigid.AddForce(new Vector2(ran2,1)*1, ForceMode2D.Impulse);
             Instantiate(key, transform.position + new Vector3(dirc,1,1), key.transform.rotation);
         }
-        else if (ran < 5) //30%
+
+        if (ran < 5) //30%
         {
             Instantiate(attack1, transform.position, attack1.transform.rotation);
         }

@@ -23,6 +23,8 @@ public class PlayerMove : MonoBehaviour
     BoxCollider2D boxCollider;
     AudioSource audioSource;
 
+    private PlayerAttack playerAttack;
+
     public int direction = -1;
 
     private SpriteRenderer spriteSetting;
@@ -38,6 +40,7 @@ public class PlayerMove : MonoBehaviour
 
     void Start()
     {
+        playerAttack = this.GetComponent<PlayerAttack>();
         spriteSetting = GetComponent<SpriteRenderer>();
     }
 
@@ -93,8 +96,10 @@ public class PlayerMove : MonoBehaviour
             RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
             if (rayHit.collider != null)
             {
-                if (rayHit.distance < 0.5f)
+                if (rayHit.distance < 1.0f) //타일맵 크기 따라 숫자 조절 필요
+                {
                     anim.SetBool("isJumping", false);
+                }
             }
         }
     }
@@ -137,11 +142,13 @@ public class PlayerMove : MonoBehaviour
         if (collision.gameObject.CompareTag("Attack1"))
         {
             collision.gameObject.SetActive(false);
+            playerAttack.skill = 1;
             //공격1
         }
         else if (collision.gameObject.CompareTag("Attack2"))
         {
             collision.gameObject.SetActive(false);
+            playerAttack.skill = 2;
             //공격2
         }
         else if (collision.gameObject.CompareTag("Mujeok"))
@@ -220,7 +227,7 @@ public class PlayerMove : MonoBehaviour
         rigid.AddForce(new Vector2(dirc,1)*7, ForceMode2D.Impulse);
 
         // Animation
-        anim.SetTrigger("doDamaged");
+        //anim.SetTrigger("doDamaged"); //애니메이션 나중에 추가하기
 
         Invoke("OffDamaged", 3);
         PlaySound("DAMAGED");

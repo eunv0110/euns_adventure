@@ -50,14 +50,14 @@ public class BulletContact : MonoBehaviour
         {
             if (enemyHealth <= 0)
             {
-                if(playerAttack.skill!=1) //fire일때는 fire 안사라짐
+                if(playerAttack.skill!=2) //fire일때는 fire 안사라짐
                     Destroy(collision.gameObject);
                 Destroy(gameObject);
                 enemyMove.itemDrop();
             }
             else
             {
-                if (playerAttack.skill != 1)
+                if (playerAttack.skill != 2)
                     Destroy(collision.gameObject);
 
                 //맞으면 몬스터가 위로 튕기게
