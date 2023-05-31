@@ -17,6 +17,7 @@ public class EnemyMove : MonoBehaviour
     public GameObject mujeok;
     public GameObject big;
     public GameObject key;
+    public GameObject lifeItem;
 
     void Awake()
     {
@@ -93,7 +94,7 @@ public class EnemyMove : MonoBehaviour
 
     public void itemDrop()
     {
-        int ran = Random.Range(0, 10);
+        float ran = Random.Range(0, 10);
 
         if (ran < 1) //Not Item 10%
         {
@@ -108,12 +109,15 @@ public class EnemyMove : MonoBehaviour
             rigid.AddForce(new Vector2(ran2,1)*1, ForceMode2D.Impulse);
             Instantiate(key, transform.position + new Vector3(dirc,1,1), key.transform.rotation);
         }
-
-        if (ran < 5) //30%
+        else if (ran < 3) //10%
+        {
+            Instantiate(lifeItem, transform.position, lifeItem.transform.rotation);
+        }
+        else if (ran < 5.5) //25%
         {
             Instantiate(attack1, transform.position, attack1.transform.rotation);
         }
-        else if (ran < 8) //30%
+        else if (ran < 8) //25%
         {
             Instantiate(attack2, transform.position, attack2.transform.rotation);
         }

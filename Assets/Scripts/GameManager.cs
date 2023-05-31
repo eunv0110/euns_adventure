@@ -64,6 +64,21 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void HealthUp()
+    {
+        if (health < 3)
+        {
+            health++;
+            //»ö±ò µÇµ¹¸®±â
+            UIhealth[health].color = new Color(1, 1, 1, 1);
+        }
+        else
+        {
+            //³ÀµÎ±â
+            UIRestartBtn.SetActive(true);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")

@@ -172,6 +172,11 @@ public class PlayerMove : MonoBehaviour
             gameManager.NextStage();
             PlaySound("FINISH");
         }
+        else if (collision.gameObject.CompareTag("lifeItem"))
+        {
+            collision.gameObject.SetActive(false);
+            gameManager.HealthDown();
+        }
     }
 
     void Mujeok()

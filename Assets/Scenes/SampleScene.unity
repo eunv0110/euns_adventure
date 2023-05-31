@@ -655,6 +655,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &82244412
 Animator:
   serializedVersion: 5
@@ -843,6 +844,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &99534501
 Animator:
   serializedVersion: 5
@@ -1031,6 +1033,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &138724040
 Animator:
   serializedVersion: 5
@@ -4748,6 +4751,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &891881021
 Animator:
   serializedVersion: 5
@@ -5134,6 +5138,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &974809217
 Animator:
   serializedVersion: 5
@@ -5322,6 +5327,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &1004206633
 Animator:
   serializedVersion: 5
@@ -5744,6 +5750,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &1151007547
 Animator:
   serializedVersion: 5
@@ -6012,6 +6019,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &1203576283
 Animator:
   serializedVersion: 5
@@ -6238,6 +6246,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 0}
 --- !u!95 &1259627724
 Animator:
   serializedVersion: 5
@@ -9513,6 +9522,7 @@ MonoBehaviour:
   mujeok: {fileID: 543989309851096122, guid: 2794e5a4c2430954bbdd509cb2e7f6cc, type: 3}
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
+  lifeItem: {fileID: 5189425830292898113, guid: d6f6ad2bcac3f134bb6741832b2ea6c4, type: 3}
 --- !u!114 &1388677135
 MonoBehaviour:
   m_ObjectHideFlags: 0

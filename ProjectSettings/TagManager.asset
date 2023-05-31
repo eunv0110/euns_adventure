@@ -13,6 +13,7 @@ TagManager:
   - Mujeok
   - Big
   - Key
+  - lifeItem
   layers:
   - Default
   - TransparentFX
