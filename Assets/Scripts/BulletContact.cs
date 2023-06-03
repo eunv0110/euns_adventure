@@ -61,8 +61,8 @@ public class BulletContact : MonoBehaviour
                     Destroy(collision.gameObject);
 
                 //맞으면 몬스터가 위로 튕기게
-                float damageDirection = playerMove.direction;
-                rigid.AddForce(new Vector2(damageDirection, 1) * 7, ForceMode2D.Impulse);
+                //float damageDirection = playerMove.direction;
+                rigid.AddForce(Vector2.up * 7, ForceMode2D.Impulse);
 
                 enemyHealth--;
             }
