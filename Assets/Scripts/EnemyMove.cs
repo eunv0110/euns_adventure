@@ -102,7 +102,7 @@ public class EnemyMove : MonoBehaviour
         }
         else if (ran < 10) //10%
         {
-            //얼레벌레 뭔가 이상한 코드
+            //얼레벌레 뭔가 이상한 코드!
             int ran2 = Random.Range(1, 10);
             Debug.Log(ran2);
             int dirc = transform.position.x - ran2 > 0 ? 1 : -1;
