@@ -70,7 +70,8 @@ public class GameManager : MonoBehaviour
         {
             health++;
             //색깔 되돌리기
-            UIhealth[health].color = new Color(1, 1, 1, 1);
+            UIhealth[health-1].color = new Color(1, 1, 1, 1);
+
         }
         else
         {
