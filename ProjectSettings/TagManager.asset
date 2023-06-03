@@ -18,6 +18,7 @@ TagManager:
   - Ladder
   - Jump_Tile
   - Jump_Tile2
+  - Super_Jump
   layers:
   - Default
   - TransparentFX
