@@ -14,6 +14,8 @@ TagManager:
   - Big
   - Key
   - lifeItem
+  - Bossbullet
+  - Boss
   layers:
   - Default
   - TransparentFX
