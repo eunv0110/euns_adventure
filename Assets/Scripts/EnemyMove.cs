@@ -20,7 +20,7 @@ public class EnemyMove : MonoBehaviour
     public GameObject lifeItem;
 
     public GameObject EnemyBullet;
-
+    public GameObject EnemyBullet2;
     public int EnemyIdx = 0;
 
     private float attackDelay = 2;
@@ -88,6 +88,15 @@ public class EnemyMove : MonoBehaviour
                     attackDelay = 2;
                     GameObject temp = Instantiate(EnemyBullet, transform.position, transform.rotation);
                     Destroy(temp, 3f);
+                }
+
+                if (EnemyIdx == 3 && distance <= 2)
+                {
+                    //자폭
+                    GameObject temp = Instantiate(EnemyBullet2, transform.position, transform.rotation);
+                    Destroy(temp, 1f);
+                    Destroy(gameObject);
+
                 }
             }
             else // 시야 범위 밖에 있을 때
