@@ -108,7 +108,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("¿¡³Ê¹Ì ºÎµúÈû");
+            Debug.Log("?????? ??????");
             //?????????? ???? ???? + ?????? = ???? =>Attack
             if(rigid.velocity.y < 0 && transform.position.y > collision.transform.position.y)
             {
@@ -191,6 +191,11 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Jump_Tile2"))
         {
             rigid.AddForce(Vector2.up * 80, ForceMode2D.Impulse);
+
+        }
+        else if (collision.gameObject.CompareTag("Super_Jump"))
+        {
+            rigid.AddForce(Vector2.up * 100, ForceMode2D.Impulse);
 
         }
     }
