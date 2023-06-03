@@ -108,6 +108,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("���ʹ� �ε���");
             //?????????? ???? ???? + ?????? = ???? =>Attack
             if(rigid.velocity.y < 0 && transform.position.y > collision.transform.position.y)
             {
@@ -116,7 +117,7 @@ public class PlayerMove : MonoBehaviour
                 OnDamaged(collision.transform.position);
         }
 
-        
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
@@ -143,7 +144,7 @@ public class PlayerMove : MonoBehaviour
             collision.gameObject.SetActive(false);
             PlaySound("ITEM");
 
-            
+
 
         }
         if (collision.gameObject.CompareTag("Attack1"))
@@ -184,7 +185,21 @@ public class PlayerMove : MonoBehaviour
             collision.gameObject.SetActive(false);
             gameManager.HealthUp();
         }
+        else if (collision.gameObject.CompareTag("Jump"))
+        {
+            rigid.AddForce(Vector2.up * 70, ForceMode2D.Impulse);
 
+        }
+        else if (collision.gameObject.CompareTag("Jump_Tile"))
+        {
+            rigid.AddForce(Vector2.up * 30, ForceMode2D.Impulse);
+
+        }
+        else if (collision.gameObject.CompareTag("Jump_Tile2"))
+        {
+            rigid.AddForce(Vector2.up * 80, ForceMode2D.Impulse);
+
+        }
     }
 
     void Mujeok()
@@ -222,7 +237,8 @@ public class PlayerMove : MonoBehaviour
 
         // Enemy Die
         EnemyMove enemyMove = enemy.gameObject.GetComponent<EnemyMove>();
-        enemyMove.OnDamaged();
+        if (enemyMove != null)
+            enemyMove.OnDamaged();
         PlaySound("ATTACK");
     }
 

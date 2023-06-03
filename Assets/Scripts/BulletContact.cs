@@ -9,6 +9,8 @@ public class BulletContact : MonoBehaviour
     private PlayerAttack playerAttack;
     private EnemyMove enemyMove;
 
+
+    Animator anim;
     private Rigidbody2D rigid;
 
     private GameObject playerObject;
@@ -19,6 +21,7 @@ public class BulletContact : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         rigid = GetComponent<Rigidbody2D>();
 
         playerObject = GameObject.FindWithTag("Player");
@@ -53,7 +56,10 @@ public class BulletContact : MonoBehaviour
                 if(playerAttack.skill!=2) //fire일때는 fire 안사라짐
                     Destroy(collision.gameObject);
                 Destroy(gameObject);
-                enemyMove.itemDrop();
+                if (enemyMove != null)
+                { 
+                    enemyMove.itemDrop();
+                }
             }
             else
             {
@@ -62,8 +68,9 @@ public class BulletContact : MonoBehaviour
 
                 //맞으면 몬스터가 위로 튕기게
                 //float damageDirection = playerMove.direction;
-                rigid.AddForce(Vector2.up * 7, ForceMode2D.Impulse);
 
+                rigid.AddForce(Vector2.up * 7, ForceMode2D.Impulse);
+                //rigid.AddForce(Vector2.right * damageDirection*7, ForceMode2D.Impulse);
                 enemyHealth--;
             }
         }

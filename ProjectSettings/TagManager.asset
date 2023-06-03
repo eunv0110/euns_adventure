@@ -14,41 +14,43 @@ TagManager:
   - Big
   - Key
   - lifeItem
-  - Bossbullet
-  - Boss
+  - Jump
+  - Ladder
+  - Jump_Tile
+  - Jump_Tile2
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  -
   - Water
   - UI
-  - 
+  -
   - Enemy
   - Platform
   - Player
   - PlayerDamaged
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
+  -
   m_SortingLayers:
   - name: Default
     uniqueID: 0
