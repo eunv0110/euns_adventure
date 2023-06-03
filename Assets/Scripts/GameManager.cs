@@ -75,7 +75,6 @@ public class GameManager : MonoBehaviour
         else
         {
             //³ÀµÎ±â
-            UIRestartBtn.SetActive(true);
         }
     }
 

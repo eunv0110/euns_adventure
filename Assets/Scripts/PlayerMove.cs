@@ -175,7 +175,7 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("lifeItem"))
         {
             collision.gameObject.SetActive(false);
-            gameManager.HealthDown();
+            gameManager.HealthUp();
         }
     }
 
