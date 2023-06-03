@@ -7,13 +7,17 @@ public class BulletMove : MonoBehaviour
     public float speed;
     private PlayerMove playerMove;
     private PlayerAttack playerAttack;
+    private SpriteRenderer spriteRenderer;
     private GameObject playerObject;
+
+    private int direction;
 
     // Start is called before the first frame update
     void Start()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
         playerObject = GameObject.FindWithTag("Player");
+
 
         if (playerObject != null)
         {
@@ -22,18 +26,28 @@ public class BulletMove : MonoBehaviour
         }
      
         Rigidbody2D rb2d = GetComponent<Rigidbody2D>();
-        Debug.Log(playerMove.direction);
 
-        if(playerAttack.skill != 1)
-            spriteRenderer.flipX = playerMove.direction == -1;
+
+        if (playerAttack.skill != 1)
+           spriteRenderer.flipX = playerMove.direction == -1;
         else
-            spriteRenderer.flipX = playerMove.direction == 1;
-
+           spriteRenderer.flipX = playerMove.direction == 1;
 
         if (playerAttack.skill != 2)
-            rb2d.velocity = transform.right * playerMove.direction * speed;
+           rb2d.velocity = transform.right * playerMove.direction * speed;
 
         rb2d.velocity = transform.right * playerMove.direction * speed;
+        
+
+        //만약 enemy일 경우
+        if (gameObject.CompareTag("Enemy"))
+        {
+            float dir = playerObject.transform.position.x - transform.position.x;
+            dir = (dir < 0) ? -1 : 1;
+            spriteRenderer.flipX = dir == -1;
+            rb2d.velocity = transform.right * dir * speed;
+        }
+
 
     }
 

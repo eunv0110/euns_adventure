@@ -9,7 +9,7 @@ public class EnemyMove : MonoBehaviour
     Animator anim;
     SpriteRenderer spriteRenderer;
     BoxCollider2D boxCollider;
-
+    private GameObject playerObject;
     public int nextMove;
 
     public GameObject attack1;
@@ -19,6 +19,11 @@ public class EnemyMove : MonoBehaviour
     public GameObject key;
     public GameObject lifeItem;
 
+    public GameObject EnemyBullet;
+
+    public int EnemyIdx = 0;
+
+    private float attackDelay = 2;
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -26,21 +31,72 @@ public class EnemyMove : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
 
-        Invoke("Think", 5); //Think를 5초 뒤에 호출
+        playerObject = GameObject.FindWithTag("Player");
+        if (playerObject != null)
+        {
+            //playerAttack = playerObject.GetComponent<PlayerAttack>();
+            //playerMove = playerObject.GetComponent<PlayerMove>();
+        }
+
+
+
+        //if (EnemyIdx==0)
+            //Invoke("Think", 5); //Think를 5초 뒤에 호출
+        //if (EnemyIdx == 1)
+            //Invoke("Chase", 0);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        //Move
-        rigid.velocity = new Vector2(nextMove, rigid.velocity.y);
+        attackDelay -= Time.deltaTime;
+        if (attackDelay < 0) attackDelay = 0;
 
-        //Platform Check
-        Vector2 frontVec = new Vector2(rigid.position.x + nextMove*0.2f, rigid.position.y);
-        RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Platform"));
-        if (rayHit.collider == null){
-            Turn();
+        if (EnemyIdx == 0)
+        {
+            //Move
+            rigid.velocity = new Vector2(nextMove, rigid.velocity.y);
+
+            //Platform Check
+            Vector2 frontVec = new Vector2(rigid.position.x + nextMove * 0.2f, rigid.position.y);
+            RaycastHit2D rayHit = Physics2D.Raycast(frontVec, Vector3.down, 1, LayerMask.GetMask("Platform"));
+            if (rayHit.collider == null)
+            {
+                Turn();
+            }
         }
+
+        if (EnemyIdx == 1 || EnemyIdx == 2|| EnemyIdx == 3)
+        {
+            // 타겟과 자신의 거리를 확인
+            float distance = Vector3.Distance(transform.position, playerObject.transform.position);
+            //시야 범위안에 들어올 때
+            if (distance <= 10)
+            {
+                //Debug.Log(distance);
+                float dir = playerObject.transform.position.x - transform.position.x;
+                dir = (dir < 0) ? -1 : 1;
+
+                spriteRenderer.flipX = dir != 1;
+
+                rigid.velocity = new Vector2( dir, rigid.velocity.y);
+                transform.Translate(new Vector2(dir, 0) * 1 * Time.deltaTime);
+
+                if (attackDelay == 0 && EnemyIdx==2)
+                {
+                    //공격
+                    attackDelay = 2;
+                    GameObject temp = Instantiate(EnemyBullet, transform.position, transform.rotation);
+                    Destroy(temp, 3f);
+                }
+            }
+            else // 시야 범위 밖에 있을 때
+            {
+                //enemyAnimator.SetBool("moving", false);
+            }
+        }
+
+
     }
 
     void Think()
@@ -49,7 +105,7 @@ public class EnemyMove : MonoBehaviour
         nextMove = Random.Range(-1, 2);
 
         //Sprite Animation
-        anim.SetInteger("WalkSpeed", nextMove);
+        //anim.SetInteger("WalkSpeed", nextMove);
 
         //Flip Sprite
         if(nextMove!=0) //가만히 서있을 때는 변화 x
@@ -67,6 +123,12 @@ public class EnemyMove : MonoBehaviour
         spriteRenderer.flipX = nextMove == 1;
         CancelInvoke(); //현재 작동중인 모든 Invoke함수를 멈춤
         Invoke("Think", 2);
+    }
+
+    public void Hit()
+    {
+        //Debug.Log("Hit");
+        anim.SetTrigger("Hit");
     }
 
     public void OnDamaged()

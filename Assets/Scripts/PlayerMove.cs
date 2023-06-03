@@ -108,6 +108,7 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
+            Debug.Log("¿¡³Ê¹Ì ºÎµúÈû");
             //?????????? ???? ???? + ?????? = ???? =>Attack
             if(rigid.velocity.y < 0 && transform.position.y > collision.transform.position.y)
             {
@@ -214,7 +215,8 @@ public class PlayerMove : MonoBehaviour
 
         // Enemy Die
         EnemyMove enemyMove = enemy.gameObject.GetComponent<EnemyMove>();
-        enemyMove.OnDamaged();
+        if (enemyMove != null)
+            enemyMove.OnDamaged();
         PlaySound("ATTACK");
     }
 
