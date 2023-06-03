@@ -177,6 +177,21 @@ public class PlayerMove : MonoBehaviour
             collision.gameObject.SetActive(false);
             gameManager.HealthUp();
         }
+        else if (collision.gameObject.CompareTag("Jump"))
+        {
+            rigid.AddForce(Vector2.up * 70, ForceMode2D.Impulse);
+
+        }
+        else if (collision.gameObject.CompareTag("Jump_Tile"))
+        {
+            rigid.AddForce(Vector2.up * 30, ForceMode2D.Impulse);
+
+        }
+        else if (collision.gameObject.CompareTag("Jump_Tile2"))
+        {
+            rigid.AddForce(Vector2.up * 80, ForceMode2D.Impulse);
+
+        }
     }
 
     void Mujeok()
