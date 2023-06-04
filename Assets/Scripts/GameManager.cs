@@ -9,6 +9,9 @@ public class GameManager : MonoBehaviour
 {
     public int totalpoint;
     public int stagePoint;
+
+    public int keyNumber;
+
     public int stageIndex;
     public int health;
     public PlayerMove player;
@@ -22,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        UIPoint.text = (totalpoint + stagePoint).ToString();
+        UIPoint.text = (totalpoint + keyNumber).ToString();
     }
     public void NextStage()
     {
@@ -45,8 +48,8 @@ public class GameManager : MonoBehaviour
             UIRestartBtn.SetActive(true);
         }
         //Calculate Point
-        totalpoint += stagePoint;
-        stagePoint = 0;
+        totalpoint += keyNumber;
+        keyNumber = 0;
     }
     
     public void HealthDown()

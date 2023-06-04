@@ -165,7 +165,8 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Key"))
         {
             collision.gameObject.SetActive(false);
-            keyNumber++;
+            gameManager.keyNumber++;
+            //keyNumber++;
         }
         else if(collision.gameObject.tag == "Finish")
         {
