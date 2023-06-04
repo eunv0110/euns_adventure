@@ -198,6 +198,11 @@ public class PlayerMove : MonoBehaviour
             rigid.AddForce(Vector2.up * 100, ForceMode2D.Impulse);
 
         }
+        else if (collision.gameObject.CompareTag("Fake_door"))
+        {
+            transform.position = new Vector3(-39, -2.68f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
+
+        }
     }
 
     void Mujeok()
