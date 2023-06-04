@@ -19,6 +19,7 @@ TagManager:
   - Jump_Tile
   - Jump_Tile2
   - Super_Jump
+  - Fake_door
   layers:
   - Default
   - TransparentFX
