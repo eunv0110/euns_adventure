@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
     public PlayerMove player;
     public GameObject[] Stages;
 
-    //UI를 담을 변수들을 생성
+    //UI?? ???? ???????? ????
     public Image[] UIhealth;
     public Text UIPoint;
     public Text UIStage;
@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         else {
             UIhealth[0].color = new Color(1, 0, 0, 0.4f);
             player.OnDie();
-            Debug.Log("죽음");
+            Debug.Log("????");
             UIRestartBtn.SetActive(true);
         }
     }
@@ -74,30 +74,17 @@ public class GameManager : MonoBehaviour
         if (health < 3)
         {
             health++;
-            //색깔 되돌리기
+            //???? ????????
             UIhealth[health-1].color = new Color(1, 1, 1, 1);
 
         }
-        else
-        {
-            //냅두기
-        }
+
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            Debug.Log(collision);
-            HealthDown();
-            if (health > 0)
-                PlayerReposition();
-        }
-    }
 
     void PlayerReposition()
     {
-        player.transform.position = new Vector3(0, 2, -1);
+        player.transform.position = new Vector3(-35.6f, -1.7f, 0);
         player.VelocityZero();
     }
 
