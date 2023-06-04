@@ -42,10 +42,12 @@ public class GameManager : MonoBehaviour
         else
         {//Game Clear
             Time.timeScale = 0;
-            
-            Text btnText = UIRestartBtn.GetComponentInChildren<Text>();
-            btnText.text = "Clear!";
-            UIRestartBtn.SetActive(true);
+
+            SceneManager.LoadScene("GoodEnding");
+
+            //Text btnText = UIRestartBtn.GetComponentInChildren<Text>();
+            //btnText.text = "Clear!";
+            //UIRestartBtn.SetActive(true);
         }
         //Calculate Key
         totalKey += keyNumber;

@@ -12772,6 +12772,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   EndingText: {fileID: 2134009862}
+  EndingIdx: 1
+  texts:
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
+  - 
 --- !u!1 &1682523173
 GameObject:
   m_ObjectHideFlags: 0
@@ -14211,7 +14223,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: 0, y: -249}
-  m_SizeDelta: {x: 1800, y: 300}
+  m_SizeDelta: {x: 1600, y: 300}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!114 &2134009862
 MonoBehaviour:
