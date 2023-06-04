@@ -191,6 +191,13 @@ public class PlayerMove : MonoBehaviour
             rigid.AddForce(Vector2.up * 80, ForceMode2D.Impulse);
 
         }
+
+        else if (collision.gameObject.CompareTag("Jump_Tile3"))
+        {
+            rigid.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
+
+        }
+
         else if (collision.gameObject.CompareTag("Super_Jump"))
         {
             rigid.AddForce(Vector2.up * 100, ForceMode2D.Impulse);
@@ -199,6 +206,11 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Fake_door"))
         {
             transform.position = new Vector3(-39, -2.68f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
+
+        }
+        else if (collision.gameObject.CompareTag("Stage2_door"))
+        {
+            transform.position = new Vector3(-9.59f, 1.31f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
 
         }
     }
