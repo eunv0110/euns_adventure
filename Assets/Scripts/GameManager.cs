@@ -7,8 +7,8 @@ using TMPro;
 
 public class GameManager : MonoBehaviour
 {
-    public int totalpoint;
-    public int stagePoint;
+    public int totalKey;
+    //public int stagePoint;
 
     public int keyNumber;
 
@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        UIPoint.text = (totalpoint + keyNumber).ToString();
+        UIPoint.text = (totalKey + keyNumber).ToString();
     }
     public void NextStage()
     {
@@ -47,8 +47,8 @@ public class GameManager : MonoBehaviour
             btnText.text = "Clear!";
             UIRestartBtn.SetActive(true);
         }
-        //Calculate Point
-        totalpoint += keyNumber;
+        //Calculate Key
+        totalKey += keyNumber;
         keyNumber = 0;
     }
     
@@ -86,6 +86,7 @@ public class GameManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Player")
         {
+            Debug.Log(collision);
             HealthDown();
             if (health > 0)
                 PlayerReposition();

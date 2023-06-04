@@ -108,7 +108,6 @@ public class PlayerMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Enemy")
         {
-            Debug.Log("?????? ??????");
             //?????????? ???? ???? + ?????? = ???? =>Attack
             if(rigid.velocity.y < 0 && transform.position.y > collision.transform.position.y)
             {
@@ -126,18 +125,16 @@ public class PlayerMove : MonoBehaviour
             bool isSilver = collision.gameObject.name.Contains("Silver");
             bool isGold = collision.gameObject.name.Contains("Gold");
 
-            if(isBronze)
+/*            if(isBronze)
                 gameManager.stagePoint += 50;
             else if(isSilver)
                 gameManager.stagePoint += 100;
             else if(isGold)
-                gameManager.stagePoint += 150;
+                gameManager.stagePoint += 150;*/
 
             //?????? ?????? ??????
             collision.gameObject.SetActive(false);
             PlaySound("ITEM");
-
-            
 
         }
         if (collision.gameObject.CompareTag("Attack1"))
@@ -233,9 +230,11 @@ public class PlayerMove : MonoBehaviour
     }
 
     void OnAttack(Transform enemy)
-    {
+    { //밟기
         // Point
-        gameManager.stagePoint += 100;
+
+        //gameManager.stagePoint += 100;
+
         //Reaction Force
         rigid.AddForce(Vector2.up * 5, ForceMode2D.Impulse);
 
