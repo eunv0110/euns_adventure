@@ -115,10 +115,17 @@ public class PlayerMove : MonoBehaviour
             }else
                 OnDamaged(collision.transform.position);
         }
+
+
     }
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        if (collision.gameObject.tag == "Boss" || collision.gameObject.tag == "Bossbullet")
+        {
+            OnDamaged(collision.transform.position);
+        }
+
         if (collision.gameObject.tag == "Item")
         {
             bool isBronze = collision.gameObject.name.Contains("Bronze");
@@ -135,6 +142,8 @@ public class PlayerMove : MonoBehaviour
             //?????? ?????? ??????
             collision.gameObject.SetActive(false);
             PlaySound("ITEM");
+
+
 
         }
         if (collision.gameObject.CompareTag("Attack1"))
