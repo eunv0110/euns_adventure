@@ -176,7 +176,8 @@ MonoBehaviour:
   big: {fileID: 1159237719713447027, guid: 3acb78e27fc0c1c479785aa19dc89d35, type: 3}
   key: {fileID: 4990468135814111387, guid: e188c0e20f950d54cb3b52c585a134d2, type: 3}
   lifeItem: {fileID: 5189425830292898113, guid: d6f6ad2bcac3f134bb6741832b2ea6c4, type: 3}
-  EnemyBullet: {fileID: 5966348282095971424, guid: 8d6d3c7e78b9eed4da1fb4cc24fb993c, type: 3}
+  EnemyBullet: {fileID: 5966348282095971424, guid: 7fc8d739f2c2b564a9ff0a9af012ae62, type: 3}
+  EnemyBullet2: {fileID: 5966348282095971424, guid: 8d6d3c7e78b9eed4da1fb4cc24fb993c, type: 3}
   EnemyIdx: 2
 --- !u!114 &5827683163004271361
 MonoBehaviour:
