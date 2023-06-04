@@ -20,6 +20,8 @@ TagManager:
   - Jump_Tile2
   - Super_Jump
   - Fake_door
+  - Jump_Tile3
+  - Stage2_door
   layers:
   - Default
   - TransparentFX
