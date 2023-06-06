@@ -10,4 +10,9 @@ public class StartButton : MonoBehaviour
     {
         SceneManager.LoadScene("SampleScene");
     }
+
+    public void StartScene()
+    {
+        SceneManager.LoadScene("StartScene");
+    }
 }

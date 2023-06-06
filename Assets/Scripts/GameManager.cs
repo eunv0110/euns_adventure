@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
         {//Game Clear
             Time.timeScale = 0;
 
-            SceneManager.LoadScene("GoodEnding");
+            SceneManager.LoadScene("Ending");
 
             //Text btnText = UIRestartBtn.GetComponentInChildren<Text>();
             //btnText.text = "Clear!";
@@ -53,7 +53,16 @@ public class GameManager : MonoBehaviour
         totalKey += keyNumber;
         keyNumber = 0;
     }
-    
+
+    public void clear()
+    {
+        Text btnText = UIRestartBtn.GetComponentInChildren<Text>();
+        btnText.text = "클리어!";
+        UIRestartBtn.SetActive(true);
+
+        //버튼 누르면 start 씬으로 이동하게 바꾸기
+    }
+
     public void HealthDown()
     {
         if (health > 1)
