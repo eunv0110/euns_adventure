@@ -15,6 +15,9 @@ public class GameManager : MonoBehaviour
     public int stageIndex;
     public int health;
     public PlayerMove player;
+
+    public Dialogue dialogue;
+
     public GameObject[] Stages;
 
     //UI?? ???? ???????? ????
@@ -22,6 +25,13 @@ public class GameManager : MonoBehaviour
     public Text UIPoint;
     public Text UIStage;
     public GameObject UIRestartBtn;
+
+    public GameObject DialoguePanel;
+
+    void Start()
+    {
+        dialogue = DialoguePanel.GetComponent<Dialogue>();
+    }
 
     void Update()
     {
@@ -90,6 +100,12 @@ public class GameManager : MonoBehaviour
 
     }
 
+    public void SecretRoomLog()
+    {
+        Debug.Log("게임매니저 호출");
+        //DialoguePanel.SetActive(true);
+        dialogue.SecretRoom();
+    }
 
     void PlayerReposition()
     {

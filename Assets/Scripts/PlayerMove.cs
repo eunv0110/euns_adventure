@@ -243,8 +243,13 @@ public class PlayerMove : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Secret_Wall"))
         {
-            Debug.Log("cdsc");
-            SecretPlace.SetActive(true);
+            if (gameManager.totalKey < 2)
+            {
+                Debug.Log("열쇠부족");
+                gameManager.SecretRoomLog();
+            }
+            else
+                SecretPlace.SetActive(true);
         }
 
 

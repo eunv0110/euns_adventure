@@ -15,18 +15,29 @@ public class Dialogue : MonoBehaviour
     private int clickCount2 = 0;
     public GameManager gameManager;
     public GameObject[] Endings;
+    public GameObject DialogPanel;
     // Start is called before the first frame update
+
     void Start()
     {
 
+        if (gameManager.stageIndex >= gameManager.Stages.Length - 1)
+            PlayEnding();
+
+    }
+    private void PlayEnding()
+    {
+
         if (gameManager.totalKey < 3)
-            EndingIdx = 2;
-        else if(gameManager.totalKey < 10)
-            EndingIdx = 1;
+           EndingIdx = 2;
+        else if (gameManager.totalKey < 10)
+           EndingIdx = 1;
         else
-            EndingIdx = 0;
+           EndingIdx = 0;
 
         Endings[EndingIdx].SetActive(true);
+
+
 
         if (EndingIdx == 0)
         {
@@ -60,7 +71,7 @@ public class Dialogue : MonoBehaviour
             texts[1] = "보물 상자를 열어서 얻은 것은 작고 초라한 보석 하나였다..";
 
             texts[2] = "그마저도 가짜 보석이었기에, 은이는 아무런 돈도 벌지 못했다.";
-            texts[3] = "게다가 가짜 보석을 팔려 한 죄로, 마을에서 추방당하기까지 했다.";
+            texts[3] = "게다가 가짜 보석을 팔려 한 죄로,\n 마을에서 추방당하기까지 했다.";
             texts[4] = "은이는 숲속에서 누군가의 해골과 밤을 보내야했다.";
             texts[5] = "배가 고프지만 돈이 없어 독버섯인지 아닌지도 모르는 버섯을 주워 불에 구워먹어야한다.";
             texts[6] = "은이의 삶은 어쩌다 이렇게 되었을까?";
@@ -76,6 +87,20 @@ public class Dialogue : MonoBehaviour
         clickCount2=1; //clickCount2=1 : 실행중 clickCount2=2: doubleclicked clickCount2=0: default
     }
 
+    public void SecretRoom()
+    {
+        //Debug.Log("dia 호출");
+        DialogPanel.SetActive(true);
+
+        texts = new string[1];
+        texts[0] = "비밀의 방에 들어가기에 열쇠의 수가 부족한 것 같다... " +
+            "\n열쇠를 더 모으고 다시 시도해보자.";
+
+        StartCoroutine(Typing(texts[clickCount]));
+        clickCount2 = 1;
+        clickCount++;
+        //DialogPanel.SetActive(false);
+    }
 
     // Update is called once per frame
     void Update()
@@ -95,7 +120,22 @@ public class Dialogue : MonoBehaviour
 
         }else if(Input.GetMouseButtonDown(0))
         {
-            gameManager.clear();
+            if (gameManager.stageIndex >= gameManager.Stages.Length - 1)
+                gameManager.clear();
+            else
+            {
+                if (clickCount == 1)
+                {
+                    clickCount2 = 2;
+                    clickCount++;
+                }
+                else
+                {
+                    clickCount = 0;
+                    DialogPanel.SetActive(false);
+                }
+                    
+            }
         }
     }
 
@@ -119,10 +159,12 @@ public class Dialogue : MonoBehaviour
                 if (i == message.Length - 1)
                 {
                     clickCount2 = 0;
-                    //Debug.Log("else");
                 }
                 yield return new WaitForSeconds(0.1f);
             }
         }
+
+
     }
+
 }
