@@ -94,8 +94,10 @@ public class PlayerMove : MonoBehaviour
         if (rigid.velocity.y < 0)
         {
             RaycastHit2D rayHit = Physics2D.Raycast(rigid.position, Vector3.down, 1, LayerMask.GetMask("Platform"));
+            //Debug.Log(rayHit.collider);
             if (rayHit.collider != null)
             {
+                //Debug.Log(rayHit.distance);
                 if (rayHit.distance < 3.0f) //?????? ???? ???? ???? ???? ????
                 {
                     anim.SetBool("isJumping", false);
@@ -115,7 +117,11 @@ public class PlayerMove : MonoBehaviour
             }else
                 OnDamaged(collision.transform.position);
         }
-
+        else if (collision.gameObject.tag == "Boss" || collision.gameObject.tag == "Bossbullet")
+        {
+            Debug.Log("보스에게 공격당함");
+            OnDamaged(collision.transform.position);
+        }
 
     }
 
@@ -270,7 +276,6 @@ public class PlayerMove : MonoBehaviour
     {
         //Health Down
         gameManager.HealthDown();
-
         // Change Layer (Immortal Active)
         gameObject.layer = 10;
         // View Alpha
