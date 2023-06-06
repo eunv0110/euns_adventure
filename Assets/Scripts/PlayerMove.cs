@@ -29,6 +29,9 @@ public class PlayerMove : MonoBehaviour
 
     private SpriteRenderer spriteSetting;
 
+    public bool bossDie = false;
+    public GameObject bossfinish;
+
     void Awake()
     {
         rigid = GetComponent<Rigidbody2D>();
@@ -77,6 +80,9 @@ public class PlayerMove : MonoBehaviour
             anim.SetBool("isWalking", false);
         else
             anim.SetBool("isWalking", true);
+
+
+        BossFinish();
     }
     void FixedUpdate()
     {
@@ -186,6 +192,10 @@ public class PlayerMove : MonoBehaviour
             gameManager.NextStage();
             PlaySound("FINISH");
         }
+        else if(collision.gameObject.tag == "BossFinish")
+        {
+            BossFinish();
+        }
         else if (collision.gameObject.CompareTag("lifeItem"))
         {
             collision.gameObject.SetActive(false);
@@ -227,6 +237,14 @@ public class PlayerMove : MonoBehaviour
         {
             transform.position = new Vector3(-9.59f, 1.31f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
 
+        }
+    }
+
+    void BossFinish()
+    {
+        if (bossDie == true)
+        {
+            bossfinish.gameObject.SetActive(true);
         }
     }
 

@@ -330,6 +330,7 @@ public class BossMove : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            player.GetComponent<PlayerMove>().bossDie = true;
         }
     }
 
