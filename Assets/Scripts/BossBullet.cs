@@ -24,12 +24,14 @@ public class BossBullet : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
+        /*
         if (collision.gameObject.tag == "Playerbullet")
         {
             Destroy(gameObject);
         }
+        */
 
-        else if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Platform")))
+        if (collision.gameObject.layer.Equals(LayerMask.NameToLayer("Platform")))
         {
             Destroy(gameObject);
         }
