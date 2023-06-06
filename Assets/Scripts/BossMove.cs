@@ -26,9 +26,12 @@ public class BossMove : MonoBehaviour
 
     public GameObject bulletObj;
     public GameObject player;
-    public GameObject playerPos;
+    public Transform playerPos;
 
     public int startHealth;
+
+    public Transform ShotPosition;
+
 
     void Awake()
     {
@@ -68,7 +71,7 @@ public class BossMove : MonoBehaviour
             return;
         
         Rigidbody2D rigid = GetComponent<Rigidbody2D>();
-        rigid.velocity = Vector2.zero;
+        //rigid.velocity = Vector2.zero;
 
         
         InvokeRepeating("Think", 2, 2);
@@ -111,165 +114,150 @@ public class BossMove : MonoBehaviour
         switch (patternIndex)
         {
             case 0:
-                FireFoward();
+                UDLR();
                 break;
             case 1:
-                FireShot();
+                targetShot();
                 break;
             case 2:
-                FireArc();
+                randomRotShot();
                 break;
             case 3:
-                FireAround();
+                circleShot();
                 break;
         }
     }
     
 
-    void FireFoward()
+    void UDLR()
     {
         if (health <= 0)
             return;
 
         Debug.Log("1");
 
-        //앞으로 4발 발사(Fire 4 Bullet Forward)
-        GameObject bulletR = Instantiate(bulletObj, transform.position + Vector3.up * 0.3f, transform.rotation);
-        GameObject bulletRR = Instantiate(bulletObj, transform.position + Vector3.up * 0.8f, transform.rotation);
-        GameObject bulletL = Instantiate(bulletObj, transform.position + Vector3.down * 0.3f, transform.rotation);
-        GameObject bulletLL = Instantiate(bulletObj, transform.position + Vector3.down * 0.8f, transform.rotation);
+        GameObject bulletU = Instantiate(bulletObj);
+        GameObject bulletD = Instantiate(bulletObj);
+        GameObject bulletL = Instantiate(bulletObj);
+        GameObject bulletR = Instantiate(bulletObj);
 
-        Rigidbody2D rigidR = bulletR.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidRR = bulletRR.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidL = bulletL.GetComponent<Rigidbody2D>();
-        Rigidbody2D rigidLL = bulletLL.GetComponent<Rigidbody2D>();
+        bulletU.transform.position = ShotPosition.position;
+        bulletD.transform.position = ShotPosition.position;
+        bulletL.transform.position = ShotPosition.position;
+        bulletR.transform.position = ShotPosition.position;
 
-        rigidR.AddForce(Vector2.right * 8, ForceMode2D.Impulse);
-        rigidRR.AddForce(Vector2.right * 8, ForceMode2D.Impulse);
-        rigidL.AddForce(Vector2.left * 8, ForceMode2D.Impulse);
-        rigidLL.AddForce(Vector2.left * 8, ForceMode2D.Impulse);
+        Quaternion rotU = Quaternion.Euler(0, 0, 0);
+        Quaternion rotD = Quaternion.Euler(0, 0, 90);
+        Quaternion rotL = Quaternion.Euler(0, 0, 180);
+        Quaternion rotR = Quaternion.Euler(0, 0, 270);
+
+        bulletU.transform.rotation = rotU;
+        bulletD.transform.rotation = rotD;
+        bulletL.transform.rotation = rotL;
+        bulletR.transform.rotation = rotR;
+
+        Destroy(bulletU, 3f);
+        Destroy(bulletD, 3f);
+        Destroy(bulletR, 3f);
+        Destroy(bulletL, 3f);
 
         //#.Pattern Counting
-        curPatternCount++;
+        //curPatternCount++;
 
-        Destroy(bulletR, 3f);
-        Destroy(bulletRR, 3f);
-        Destroy(bulletL, 3f);
-        Destroy(bulletLL, 3f);
-
-        if (curPatternCount < maxPatternCount[patternIndex])
-            Invoke("FireFoward", 2);
-        else
+        //if (curPatternCount < maxPatternCount[patternIndex])
+        //    Invoke("UDLR", 2);
+        //else
             Invoke("Think", 3);
     }
-    void FireShot()
+
+    void targetShot()
     {
         if (health <= 0)
             return;
 
         Debug.Log("2");
 
-        //플레이어 방향으로 샷건(Fire 5 Random Shotgun Bullet to Player)
-        for (int index = 0; index < 5; index++)
-        {
-            /*
-            float angle = Mathf.Atan2(player.transform.position.y, player.transform.position.x) * Mathf.Rad2Deg;
-            GameObject bullet = Instantiate(bulletObj, transform.position, transform.rotation);
-            //transform.rotation = angle;
+        GameObject bullet = Instantiate(bulletObj);
 
-            Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-            Vector2 dirVec = player.transform.position - transform.position;
-            Vector2 ranVec = new Vector2(Random.Range(-0.5f, 0.5f), Random.Range(0f, 2f));
-            dirVec += ranVec;
-            
+        bullet.transform.position = ShotPosition.position;
 
-            rigid.AddForce(dirVec.normalized * 3, ForceMode2D.Impulse);
-            */
+        bullet.transform.rotation = ShotPosition.rotation;
 
-            GameObject bullet = Instantiate(bulletObj, transform.position, transform.rotation);
-            transform.position = playerPos.transform.position;
-            Destroy(bullet, 3f);
-        }
+        Destroy(bullet, 3f);
 
+        //#.Pattern Counting
+        //curPatternCount++;
+
+        //if (curPatternCount < maxPatternCount[patternIndex])
+           // Invoke("targetShot", 3.5f);
+       // else
+            Invoke("Think", 3);
+    }
+    void randomRotShot()
+    {
+        if (health <= 0)
+            return;
+
+        Debug.Log("3");
+
+        GameObject bulletL = Instantiate(bulletObj);
+        GameObject bulletC = Instantiate(bulletObj);
+        GameObject bulletR = Instantiate(bulletObj);
+
+        bulletL.transform.position = ShotPosition.position;
+        bulletC.transform.position = ShotPosition.position;
+        bulletR.transform.position = ShotPosition.position;
+
+        float ran = Random.Range(0, 360);
+
+        Quaternion rotL = Quaternion.Euler(0, 0, ran - 10);
+        Quaternion rotC = Quaternion.Euler(0, 0, ran);
+        Quaternion rotR = Quaternion.Euler(0, 0, ran + 10);
+
+        bulletL.transform.rotation = rotL;
+        bulletC.transform.rotation = rotC;
+        bulletR.transform.rotation = rotR;
+
+        Destroy(bulletL, 3f);
+        Destroy(bulletC, 3f);
+        Destroy(bulletR, 3f);
 
         //#.Pattern Counting
         curPatternCount++;
 
         if (curPatternCount < maxPatternCount[patternIndex])
-            Invoke("FireShot", 3.5f);
+            Invoke("randomRotShot", 0.7f);
         else
             Invoke("Think", 3);
     }
-    void FireArc()
+    void circleShot()
     {
         if (health <= 0)
             return;
 
         Debug.Log("4");
 
-        //원 형태로 전체 공격(Fire Around)
-        int roundNumA = 50;
-        int roundNumB = 40;
-        int roundNum = curPatternCount % 2 == 0 ? roundNumA : roundNumB;
-
-        for (int index = 0; index < roundNum; index++)
+        //360번 반복
+        for (int i = 0; i < 360; i += 13)
         {
+            //총알 생성
+            GameObject temp = Instantiate(bulletObj);
 
-            GameObject bullet = Instantiate(bulletObj, transform.position, Quaternion.identity);
+            //2초마다 삭제
+            Destroy(temp, 2f);
 
-            Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-            //생성되는 총알의 순번을 활용하여 방향 결정
-            Vector2 dirVec = new Vector2(Mathf.Sin(Mathf.PI * 2 * index / roundNum), Mathf.Sin(Mathf.PI * 2 * index / roundNum));
-            rigid.AddForce(dirVec.normalized * 2, ForceMode2D.Impulse);
+            //총알 생성 위치를 ShotPosition 좌표로 한다.
+            temp.transform.position = ShotPosition.position;
 
-            Vector3 rotVec = Vector3.forward * 90 * index / roundNum + Vector3.forward * -90;
-            bullet.transform.Rotate(rotVec);
-            transform.position = playerPos.transform.position;
-
-            Destroy(bullet, 3f);
+            //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
+            temp.transform.rotation = Quaternion.Euler(0, 0, i);
         }
 
         //#.Pattern Counting
         curPatternCount++;
 
         if (curPatternCount < maxPatternCount[patternIndex])
-            Invoke("FireArc", 0.7f);
-        else
-            Invoke("Think", 3);
-    }
-    void FireAround()
-    {
-        if (health <= 0)
-            return;
-
-        Debug.Log("4");
-
-        //원 형태로 전체 공격(Fire Around)
-        int roundNumA = 50;
-        int roundNumB = 40;
-        int roundNum = curPatternCount % 2 == 0 ? roundNumA : roundNumB;
-
-        for (int index = 0; index < roundNum; index++) 
-        { 
-
-            GameObject bullet = Instantiate(bulletObj, transform.position, Quaternion.identity);
-
-            Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
-            //생성되는 총알의 순번을 활용하여 방향 결정
-            Vector2 dirVec = new Vector2(Mathf.Cos(Mathf.PI * 2 * index / roundNum), Mathf.Sin(Mathf.PI * 2 * index / roundNum));
-            rigid.AddForce(dirVec.normalized * 2, ForceMode2D.Impulse);
-
-            Vector3 rotVec = Vector3.forward * 360 * index / roundNum + Vector3.forward * 90;
-            bullet.transform.Rotate(rotVec);
-
-            Destroy(bullet, 3f);
-        }
-
-        //#.Pattern Counting
-        curPatternCount++;
-
-        if (curPatternCount < maxPatternCount[patternIndex])
-            Invoke("FireAround", 0.7f);
+            Invoke("circleShot", 0.7f);
         else
             Invoke("Think", 3);
     }
@@ -331,7 +319,7 @@ public class BossMove : MonoBehaviour
 
     }
 
-    public void OnHit(int dmg)
+    public void OnDamaged(int dmg)
     {
         if (health <= 0)
             return;
@@ -342,6 +330,7 @@ public class BossMove : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
+            player.GetComponent<PlayerMove>().bossDie = true;
         }
     }
 
@@ -358,10 +347,10 @@ public class BossMove : MonoBehaviour
             //BulletMove에서 총알의 위력을 설정하면 (int dmg)
             //BulletMove bullet = collision.gameObject.GetComponent<BulletMove>();
             //OnHit(bullet.dmg);
-            OnHit(1);
-            Debug.Log("몬스터공격당함" + health);
-            
-            //Destroy(gameObject);
+            OnDamaged(1);
+            Debug.Log("보스공격당함" + health);
         }
     }
+
+
 }

@@ -47,13 +47,20 @@ public class BulletMove : MonoBehaviour
             spriteRenderer.flipX = dir == -1;
             rb2d.velocity = transform.right * dir * speed;
         }
-
-
+        else if (gameObject.CompareTag("Boss"))
+        {
+            float dir = playerObject.transform.position.x - transform.position.x;
+            dir = (dir < 0) ? 1 : -1;
+            spriteRenderer.flipX = dir == -1;
+            rb2d.velocity = transform.right * dir * speed;
+        }
     }
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter2D(Collider2D collision)
     {
-
+        if (collision.gameObject.tag == "Bossbullet")
+        {
+            Destroy(gameObject);
+        }
     }
 }

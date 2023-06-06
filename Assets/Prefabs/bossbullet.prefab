@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3815921926782681172}
   - component: {fileID: 3815921926782681171}
   - component: {fileID: 3815921926782681170}
-  - component: {fileID: 3815921926782681173}
+  - component: {fileID: 6532222703587604777}
   - component: {fileID: 3815921926782681175}
   - component: {fileID: 3815921926782681174}
   m_Layer: 7
@@ -109,7 +109,7 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &3815921926782681173
+--- !u!114 &6532222703587604777
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -118,10 +118,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 3815921926782681169}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f2a156143fb71cb4e80cac8318652fc0, type: 3}
+  m_Script: {fileID: 11500000, guid: de6fe3bad35eda64daca51802824def6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 6
+  Speed: 10
 --- !u!58 &3815921926782681175
 CircleCollider2D:
   m_ObjectHideFlags: 0

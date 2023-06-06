@@ -23,6 +23,7 @@ TagManager:
   - Jump_Tile3
   - Stage2_door
   - Bossbullet
+  - Boss
   layers:
   - Default
   - TransparentFX
