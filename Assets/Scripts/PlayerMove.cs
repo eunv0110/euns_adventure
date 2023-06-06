@@ -31,6 +31,9 @@ public class PlayerMove : MonoBehaviour
 
     public bool bossDie = false;
     public GameObject bossfinish;
+    public GameObject SecretPlace;
+    public GameObject SecretWall;
+
 
     void Awake()
     {
@@ -238,6 +241,13 @@ public class PlayerMove : MonoBehaviour
             transform.position = new Vector3(-9.59f, 1.31f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
 
         }
+        else if (collision.gameObject.CompareTag("Secret_Wall"))
+        {
+            Debug.Log("cdsc");
+            SecretPlace.SetActive(true);
+        }
+
+
     }
 
     void BossFinish()
