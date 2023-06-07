@@ -9402,7 +9402,7 @@ MonoBehaviour:
   stageIndex: 4
   health: 3
   player: {fileID: 1918666006}
-  dialogue: {fileID: 0}
+  dialogue: {fileID: 1619373308}
   Stages:
   - {fileID: 0}
   - {fileID: 0}
@@ -9414,7 +9414,7 @@ MonoBehaviour:
   UIPoint: {fileID: 2116600675}
   UIStage: {fileID: 1177382314}
   UIRestartBtn: {fileID: 343225594}
-  DialoguePanel: {fileID: 0}
+  DialoguePanel: {fileID: 1619373306}
 --- !u!4 &1581502750
 Transform:
   m_ObjectHideFlags: 0
@@ -9740,7 +9740,9 @@ MonoBehaviour:
   - {fileID: 440103452}
   - {fileID: 1970777178}
   - {fileID: 401823287}
-  DialogPanel: {fileID: 0}
+  DialogPanel: {fileID: 1619373306}
+  playerMove: {fileID: 0}
+  playerObject: {fileID: 0}
 --- !u!1 &1647554084
 GameObject:
   m_ObjectHideFlags: 0
@@ -20504,7 +20506,7 @@ MonoBehaviour:
   maxSpeed: 7
   jumpPower: 21
   direction: -1
-  bossDie: 0
+  bossDie: 1
   bossfinish: {fileID: 0}
   SecretPlace: {fileID: 0}
   SecretWall: {fileID: 0}

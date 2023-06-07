@@ -16,12 +16,22 @@ public class Dialogue : MonoBehaviour
     public GameManager gameManager;
     public GameObject[] Endings;
     public GameObject DialogPanel;
+
+    public PlayerMove playerMove;
+    public GameObject playerObject;
     // Start is called before the first frame update
 
     void Start()
     {
+        playerObject = GameObject.FindWithTag("Player");
 
-        if (gameManager.stageIndex >= gameManager.Stages.Length - 1)
+        if (playerObject != null)
+        {
+            playerMove = playerObject.GetComponent<PlayerMove>();
+        }
+        clickCount = 0;
+
+        if (playerMove.bossDie) //boss처치했는지로 수정
             PlayEnding();
 
     }
@@ -106,6 +116,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Debug.Log(texts.Length);
         if (Input.GetMouseButtonDown(0) && clickCount < texts.Length)
         {
             if (clickCount2 == 0)
@@ -121,7 +132,7 @@ public class Dialogue : MonoBehaviour
 
         }else if(Input.GetMouseButtonDown(0))
         {
-            if (gameManager.stageIndex >= gameManager.Stages.Length - 1)
+            if (playerMove.bossDie)
                 gameManager.clear();
             else
             {

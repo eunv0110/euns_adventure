@@ -129,7 +129,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (collision.gameObject.tag == "Boss" || collision.gameObject.tag == "Bossbullet")
         {
-            Debug.Log("보스에게 공격당함");
+            //Debug.Log("보스에게 공격당함");
             OnDamaged(collision.transform.position);
         }
 
@@ -194,9 +194,15 @@ public class PlayerMove : MonoBehaviour
         }
         else if(collision.gameObject.tag == "Finish")
         {
-            //Next Stage
-            gameManager.NextStage();
             PlaySound("FINISH");
+            //Next Stage
+            if (bossDie)
+                SceneManager.LoadScene("Ending");
+            else
+            {
+                gameManager.NextStage();
+            }
+            
         }
         else if(collision.gameObject.tag == "BossFinish")
         {
