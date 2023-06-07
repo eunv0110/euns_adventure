@@ -96,7 +96,8 @@ public class Dialogue : MonoBehaviour
         texts[0] = "비밀의 방에 들어가기에 열쇠의 수가 부족한 것 같다... " +
             "\n열쇠를 더 모으고 다시 시도해보자.";
 
-        StartCoroutine(Typing(texts[clickCount]));
+        if(clickCount2==0)
+            StartCoroutine(Typing(texts[0]));
         clickCount2 = 1;
         clickCount++;
         //DialogPanel.SetActive(false);

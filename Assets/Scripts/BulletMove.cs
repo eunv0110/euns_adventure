@@ -36,8 +36,8 @@ public class BulletMove : MonoBehaviour
         if (playerAttack.skill != 2)
            rb2d.velocity = transform.right * playerMove.direction * speed;
 
-        rb2d.velocity = transform.right * playerMove.direction * speed;
-        
+        //rb2d.velocity = transform.right * playerMove.direction * speed;
+
 
         //만약 enemy일 경우
         if (gameObject.CompareTag("Enemy"))
@@ -53,6 +53,18 @@ public class BulletMove : MonoBehaviour
             dir = (dir < 0) ? 1 : -1;
             spriteRenderer.flipX = dir == -1;
             rb2d.velocity = transform.right * dir * speed;
+        }
+    }
+
+    private void FixedUpdate()
+    {
+        if (playerAttack.skill == 2)
+        {
+            if(playerMove.direction == 1)
+            //transform.Translate(new Vector2(1,1));
+                transform.position = new Vector3(playerObject.transform.position.x+2.5f, playerObject.transform.position.y, playerObject.transform.position.z);
+            else
+                transform.position = new Vector3(playerObject.transform.position.x - 2.5f, playerObject.transform.position.y, playerObject.transform.position.z);
         }
     }
 
