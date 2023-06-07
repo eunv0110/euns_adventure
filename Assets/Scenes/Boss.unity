@@ -301,7 +301,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   audioSkill0: {fileID: 8300000, guid: 81652031b64c342cc8dbc59c138d77c5, type: 3}
   audioSkill1: {fileID: 8300000, guid: 19f89c6e740e7447f9e12a8310d3e973, type: 3}
-  audioSkill2: {fileID: 8300000, guid: b99da9a57308d4ba1bee1cf1d9038376, type: 3}
+  audioSkill2: {fileID: 8300000, guid: ff5f85da24bc943d1abdc5760a22bc81, type: 3}
   playerBullet1: {fileID: 3815921926782681169, guid: e85f308040ceec1499706ba01c80ad5c, type: 3}
   playerBullet2: {fileID: 1164758072957620622, guid: f00ea2d456f414a4d97e73d50ffdd8c5, type: 3}
   Fire: {fileID: 7328801552395949251, guid: 63ef7e055ed62514c8cdbc5d52324ffc, type: 3}
