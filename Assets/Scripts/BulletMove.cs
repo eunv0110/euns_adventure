@@ -12,7 +12,6 @@ public class BulletMove : MonoBehaviour
 
     private int direction;
 
-    // Start is called before the first frame update
     void Start()
     {
         SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
@@ -75,4 +74,5 @@ public class BulletMove : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

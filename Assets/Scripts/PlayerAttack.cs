@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
+    public AudioClip audioSkill0;
+    public AudioClip audioSkill1;
+    public AudioClip audioSkill2;
+
+    AudioSource audioSource;
+
     public GameObject playerBullet1;
     public GameObject playerBullet2;
     public GameObject Fire;
@@ -12,7 +18,11 @@ public class PlayerAttack : MonoBehaviour
     private Vector3 bulletPosition;
     public int skill;
 
-    // Start is called before the first frame update
+    void Awake()
+    {
+        audioSource = GetComponent<AudioSource>();
+    }
+
     void Start()
     {
         playerMove = this.GetComponent<PlayerMove>();
@@ -27,12 +37,13 @@ public class PlayerAttack : MonoBehaviour
             {
                 GameObject temp = Instantiate(playerBullet1, transform.position, transform.rotation);
                 Destroy(temp, 1f);
+                PlaySound("SKILL0");
             }
             else if (skill == 1)
             {
                 GameObject temp = Instantiate(playerBullet2, transform.position, transform.rotation);
                 Destroy(temp, 1f);
-
+                PlaySound("SKILL1");
             }
             else if (skill == 2)
             {
@@ -47,7 +58,25 @@ public class PlayerAttack : MonoBehaviour
                 //temp.transform.position = bulletPosition; 움직이는거 따라 fire도 이동
 
                 Destroy(temp, 1f);
+                PlaySound("SKILL2");
             }
         }
+    }
+
+    void PlaySound(string action)
+    {
+        switch (action)
+        {
+            case "SKILL0":
+                audioSource.clip = audioSkill0;
+                break;
+            case "SKILL1":
+                audioSource.clip = audioSkill1;
+                break;
+            case "SKILL2":
+                audioSource.clip = audioSkill2;
+                break;
+        }
+        audioSource.Play();
     }
 }

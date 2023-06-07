@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class EnemyMove : MonoBehaviour
 {
-    
+    public AudioClip audioDamaged;
+    public AudioClip audioAttack;
+    public AudioClip audioBoom;
+
+    AudioSource audioSource;
+
     Rigidbody2D rigid;
     Animator anim;
     SpriteRenderer spriteRenderer;
@@ -30,6 +35,7 @@ public class EnemyMove : MonoBehaviour
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
+        audioSource = GetComponent<AudioSource>();
 
         playerObject = GameObject.FindWithTag("Player");
         if (playerObject != null)
@@ -88,6 +94,7 @@ public class EnemyMove : MonoBehaviour
                     attackDelay = 2;
                     GameObject temp = Instantiate(EnemyBullet, transform.position, transform.rotation);
                     Destroy(temp, 3f);
+                    PlaySound("ATTACK");
                 }
 
                 if (EnemyIdx == 3 && distance <= 2)
@@ -96,6 +103,7 @@ public class EnemyMove : MonoBehaviour
                     GameObject temp = Instantiate(EnemyBullet2, transform.position, transform.rotation);
                     Destroy(temp, 1f);
                     Destroy(gameObject);
+                    PlaySound("BOOM");
 
                 }
             }
@@ -155,6 +163,7 @@ public class EnemyMove : MonoBehaviour
 
         itemDrop();
 
+        PlaySound("DAMAGED");
         Destroy(gameObject);
     }
 
@@ -204,5 +213,22 @@ public class EnemyMove : MonoBehaviour
             int dirc = transform.position.x - 10 > 0 ? 1 : -1;
             rigid.AddForce(new Vector2(1, 1) * 7, ForceMode2D.Impulse);
         }
+    }
+
+    void PlaySound(string action)
+    {
+        switch (action)
+        {
+            case "ATTACK":
+                audioSource.clip = audioAttack;
+                break;
+            case "DAMAGED":
+                audioSource.clip = audioDamaged;
+                break;
+            case "BOOM":
+                audioSource.clip = audioBoom;
+                break;
+        }
+        audioSource.Play();
     }
 }
