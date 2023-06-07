@@ -67,10 +67,10 @@ public class GameManager : MonoBehaviour
     public void clear()
     {
         Text btnText = UIRestartBtn.GetComponentInChildren<Text>();
-        btnText.text = "클리어!";
+        btnText.text = "Clear";
         UIRestartBtn.SetActive(true);
 
-        //버튼 누르면 start 씬으로 이동하게 바꾸기
+        //???? ?????? start ?????? ???????? ??????
     }
 
     public void HealthDown()
@@ -102,7 +102,7 @@ public class GameManager : MonoBehaviour
 
     public void SecretRoomLog()
     {
-        Debug.Log("게임매니저 호출");
+        Debug.Log("?????????? ????");
         //DialoguePanel.SetActive(true);
         dialogue.SecretRoom();
     }

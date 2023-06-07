@@ -9397,7 +9397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec9f116899616243b75fb55412326bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalKey: 3
+  totalKey: 50
   keyNumber: 3
   stageIndex: 4
   health: 3
