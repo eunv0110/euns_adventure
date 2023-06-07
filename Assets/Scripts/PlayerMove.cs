@@ -165,12 +165,14 @@ public class PlayerMove : MonoBehaviour
         {
             collision.gameObject.SetActive(false);
             playerAttack.skill = 1;
+            StartCoroutine(resetSkill());
             //????1
         }
         else if (collision.gameObject.CompareTag("Attack2"))
         {
             collision.gameObject.SetActive(false);
             playerAttack.skill = 2;
+            StartCoroutine(resetSkill());
             //????2
         }
         else if (collision.gameObject.CompareTag("Mujeok"))
@@ -245,7 +247,7 @@ public class PlayerMove : MonoBehaviour
         {
             if (gameManager.totalKey < 2)
             {
-                Debug.Log("열쇠부족");
+                rigid.AddForce(Vector2.right * 500, ForceMode2D.Impulse);
                 gameManager.SecretRoomLog();
             }
             else
@@ -270,7 +272,13 @@ public class PlayerMove : MonoBehaviour
         Invoke("OffDamaged", 5);
     }
 
-    IEnumerator playerBigEffect()
+    IEnumerator resetSkill()
+    {
+        yield return new WaitForSeconds(5f);
+        playerAttack.skill = 0;
+    }
+
+     IEnumerator playerBigEffect()
     {
         //isPlayerBig = true;
         transform.localScale = new Vector3(2.0f, 2.0f, 1.0f);
