@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -254,6 +255,10 @@ public class PlayerMove : MonoBehaviour
                 SecretPlace.SetActive(true);
         }
 
+        else if (collision.gameObject.CompareTag("Stage4_door"))
+        {
+            SceneManager.LoadScene("Boss");
+        }
 
     }
 
