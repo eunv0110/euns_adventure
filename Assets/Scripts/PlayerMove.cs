@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     public AudioClip audioItem;
     public AudioClip audioDie;
     public AudioClip audioFinish;
+    public AudioClip audioTileJump;
 
 
     public float maxSpeed;
@@ -215,29 +216,30 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Jump"))
         {
             rigid.AddForce(Vector2.up * 70, ForceMode2D.Impulse);
+            PlaySound("TileJump");
 
         }
         else if (collision.gameObject.CompareTag("Jump_Tile"))
         {
             rigid.AddForce(Vector2.up * 30, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
         else if (collision.gameObject.CompareTag("Jump_Tile2"))
         {
             rigid.AddForce(Vector2.up * 80, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
 
         else if (collision.gameObject.CompareTag("Jump_Tile3"))
         {
             rigid.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
 
         else if (collision.gameObject.CompareTag("Super_Jump"))
         {
             rigid.AddForce(Vector2.up * 100, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
         else if (collision.gameObject.CompareTag("Fake_door"))
         {
@@ -417,6 +419,9 @@ public class PlayerMove : MonoBehaviour
                 break;
             case "FINISH":
                 audioSource.clip = audioFinish;
+                break;
+            case "TileJump":
+                audioSource.clip = audioTileJump;
                 break;
         }
         audioSource.Play();
