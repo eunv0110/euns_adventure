@@ -132,6 +132,18 @@ public class GameManager : MonoBehaviour
         player.VelocityZero();
     }
 
+    public void BossRetry()
+    {
+        Time.timeScale = 1;
+        Debug.Log("Å¬¸¯");
+        if (SceneManager.GetActiveScene().name == "Boss_S")
+            SceneManager.LoadScene("Boss_S");
+        else if (SceneManager.GetActiveScene().name == "Boss_M")
+            SceneManager.LoadScene("Boss_M");
+        else
+            SceneManager.LoadScene("Boss_L");
+    }
+
     public void GoBadEnding()
     {
         Time.timeScale = 1;

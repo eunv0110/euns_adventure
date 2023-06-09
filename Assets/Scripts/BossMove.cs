@@ -186,9 +186,16 @@ public class BossMove : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletObj);
 
+        Vector3 direction = playerPos.position - transform.position;
+
+        //방향을 각도로 변환
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        //해당 타겟 방향으로 회전한다.
+        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
         bullet.transform.position = ShotPosition.position;
 
-        bullet.transform.rotation = ShotPosition.rotation;
+        //bullet.transform.rotation = ShotPosition.rotation;
 
         Destroy(bullet, 3f);
 
