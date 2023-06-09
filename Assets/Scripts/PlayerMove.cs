@@ -196,6 +196,7 @@ public class PlayerMove : MonoBehaviour
         {
             PlaySound("FINISH");
             //Next Stage
+            Debug.Log(bossDie);
             if (bossDie)
                 SceneManager.LoadScene("Ending");
             else
