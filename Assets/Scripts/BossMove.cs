@@ -29,22 +29,36 @@ public class BossMove : MonoBehaviour
     public int patternIndex;
 
     public GameObject bulletObj;
-    public GameObject player;
+    public GameObject playerObject;
     public Transform playerPos;
-
+    private PlayerMove playerMove;
     public int startHealth;
 
-    public Transform ShotPosition;
 
+    public GameObject S;
+    public GameObject M;
+    public GameObject L;
+
+    public Transform ShotPosition;
+    //GetComponent.
 
     void Awake()
     {
+        playerObject = GameObject.FindWithTag("Player");
+
+
+        if (playerObject != null)
+        {
+            playerMove = playerObject.GetComponent<PlayerMove>();
+        }
+
         rigid = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         boxCollider = GetComponent<BoxCollider2D>();
         audioSource = GetComponent<AudioSource>();
     }
+
 
     void OnEnable()
     {
@@ -256,7 +270,8 @@ public class BossMove : MonoBehaviour
         if (health <= 0)
         {
             Destroy(gameObject);
-            player.GetComponent<PlayerMove>().bossDie = true;
+            playerObject.GetComponent<PlayerMove>().bossDie = true;
+            playerObject.GetComponent<PlayerMove>().BossFinish();
             PlaySound("DIE");
         }
     }
@@ -288,7 +303,7 @@ public class BossMove : MonoBehaviour
             case "DAMAGED":
                 audioSource.clip = audioDamaged;
                 break;
-            case "Die":
+            case "DIE":
                 audioSource.clip = audioDie;
                 break;
         }

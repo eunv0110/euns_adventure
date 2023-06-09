@@ -35,6 +35,7 @@ public class PlayerMove : MonoBehaviour
     public GameObject SecretPlace;
     public GameObject SecretWall;
 
+    public int EndingIdx;
 
     void Awake()
     {
@@ -86,7 +87,7 @@ public class PlayerMove : MonoBehaviour
             anim.SetBool("isWalking", true);
 
 
-        BossFinish();
+        //BossFinish();
     }
     void FixedUpdate()
     {
@@ -196,18 +197,15 @@ public class PlayerMove : MonoBehaviour
         {
             PlaySound("FINISH");
             //Next Stage
-            Debug.Log(bossDie);
-            if (bossDie)
-                SceneManager.LoadScene("Ending");
-            else
-            {
-                gameManager.NextStage();
-            }
+            //Debug.Log(bossDie);
+
+            gameManager.NextStage();
+            
             
         }
         else if(collision.gameObject.tag == "BossFinish")
         {
-            BossFinish();
+            SceneManager.LoadScene("Ending");
         }
         else if (collision.gameObject.CompareTag("lifeItem"))
         {
@@ -253,7 +251,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Secret_Wall"))
         {
-            if (gameManager.totalKey < 2)
+            if (gameManager.totalKey + gameManager.keyNumber < 10)
             {
                 rigid.AddForce(Vector2.right * 500, ForceMode2D.Impulse);
                 gameManager.SecretRoomLog();
@@ -264,12 +262,42 @@ public class PlayerMove : MonoBehaviour
 
         else if (collision.gameObject.CompareTag("Stage4_door"))
         {
-            SceneManager.LoadScene("Boss");
+            gameManager.totalKey += gameManager.keyNumber;
+            //gameManager.NextStage();
+
+            if (gameManager.totalKey < 30)
+                SceneManager.LoadScene("Boss_S");
+            else if (gameManager.totalKey < 50)
+                SceneManager.LoadScene("Boss_M");
+            else
+                SceneManager.LoadScene("Boss_L");
+
+
         }
+
+        else if (collision.gameObject.CompareTag("BossSFinish"))
+        {
+            SceneManager.LoadScene("BadEnding");
+
+        }
+
+        else if (collision.gameObject.CompareTag("BossMFinish"))
+        {
+            SceneManager.LoadScene("NormalEnding");
+
+        }
+        else if (collision.gameObject.CompareTag("BossLFinish"))
+        {
+            SceneManager.LoadScene("GoodEnding");
+
+        }
+
+
+
 
     }
 
-    void BossFinish()
+    public void BossFinish()
     {
         if (bossDie == true)
         {

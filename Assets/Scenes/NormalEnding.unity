@@ -9282,7 +9282,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1548448394
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9398,7 +9398,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalKey: 0
-  keyNumber: 3
+  keyNumber: 0
   stageIndex: 4
   health: 3
   player: {fileID: 1918666006}
@@ -9415,6 +9415,7 @@ MonoBehaviour:
   UIStage: {fileID: 1177382314}
   UIRestartBtn: {fileID: 343225594}
   DialoguePanel: {fileID: 1619373306}
+  playerObject: {fileID: 0}
 --- !u!4 &1581502750
 Transform:
   m_ObjectHideFlags: 0
@@ -20510,6 +20511,7 @@ MonoBehaviour:
   bossfinish: {fileID: 0}
   SecretPlace: {fileID: 0}
   SecretWall: {fileID: 0}
+  EndingIdx: 0
 --- !u!82 &1918666007
 AudioSource:
   m_ObjectHideFlags: 0
@@ -20913,7 +20915,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1970777179
 Transform:
   m_ObjectHideFlags: 0
@@ -21441,7 +21443,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2116600675
 MonoBehaviour:
   m_ObjectHideFlags: 0

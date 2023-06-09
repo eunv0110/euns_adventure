@@ -27,6 +27,9 @@ TagManager:
   - Secret_Wall
   - Secret_Place
   - Stage4_door
+  - BossSFinish
+  - BossMFinish
+  - BossLFinish
   layers:
   - Default
   - TransparentFX

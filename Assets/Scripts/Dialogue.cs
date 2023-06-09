@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Dialogue : MonoBehaviour
 {
-    //public string character = "????";
-    //private string message = "???? ?????? ?????? ?????? ???? ???? ?????? ?? ?????? \n - Good Ending- ";
 
     public Text EndingText;
     public int EndingIdx;
@@ -38,16 +37,16 @@ public class Dialogue : MonoBehaviour
     private void PlayEnding()
     {
 
-        if (gameManager.totalKey < 30)
-           EndingIdx = 2;
-        else if (gameManager.totalKey <50)
-           EndingIdx = 1;
+        if(SceneManager.GetActiveScene().name == "BadEnding")
+            EndingIdx = 2;
+        else if (SceneManager.GetActiveScene().name == "NormalEnding")
+            EndingIdx = 1;
         else
             EndingIdx = 0;
 
         Endings[EndingIdx].SetActive(true);
 
-
+    
 
         if (EndingIdx == 0)
         {
