@@ -9397,7 +9397,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ec9f116899616243b75fb55412326bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalKey: 50
+  totalKey: 0
   keyNumber: 3
   stageIndex: 4
   health: 3
@@ -20618,6 +20618,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8cea470329749334b8354c139ed9d0ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  audioSkill0: {fileID: 0}
+  audioSkill1: {fileID: 0}
+  audioSkill2: {fileID: 0}
   playerBullet1: {fileID: 3815921926782681169, guid: e85f308040ceec1499706ba01c80ad5c, type: 3}
   playerBullet2: {fileID: 1164758072957620622, guid: f00ea2d456f414a4d97e73d50ffdd8c5, type: 3}
   Fire: {fileID: 7328801552395949251, guid: 63ef7e055ed62514c8cdbc5d52324ffc, type: 3}
