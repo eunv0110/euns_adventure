@@ -2186,6 +2186,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2864638317943508976, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2864638317943508978, guid: eab14a76c21ab794f830ece562476c05, type: 3}
       propertyPath: m_Name
       value: M
@@ -2213,7 +2217,15 @@ PrefabInstance:
     - target: {fileID: 2864638317943508980, guid: eab14a76c21ab794f830ece562476c05, type: 3}
       propertyPath: playerPos
       value: 
-      objectReference: {fileID: 1007707762}
+      objectReference: {fileID: 269192073}
+    - target: {fileID: 2864638317943508980, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+      propertyPath: ShotPosition
+      value: 
+      objectReference: {fileID: 1337519322}
+    - target: {fileID: 2864638317943508980, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+      propertyPath: playerObject
+      value: 
+      objectReference: {fileID: 269192065}
     - target: {fileID: 2864638317943508983, guid: eab14a76c21ab794f830ece562476c05, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -2265,6 +2277,24 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2864638317943508978, guid: eab14a76c21ab794f830ece562476c05, type: 3}
   m_PrefabInstance: {fileID: 1337519315}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1337519322 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2864638317943508983, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+  m_PrefabInstance: {fileID: 1337519315}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1337519328
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337519316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b73a2a6b68c36dc43b4ee167f1b036f2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Target: {fileID: 269192073}
 --- !u!1 &1405754201
 GameObject:
   m_ObjectHideFlags: 0
