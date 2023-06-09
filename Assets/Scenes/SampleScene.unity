@@ -71424,7 +71424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1918666000}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -42.8, y: -1.05, z: 0}
+  m_LocalPosition: {x: -42.8, y: 2.11, z: 0}
   m_LocalScale: {x: 1.22417, y: 1.22417, z: 1.22417}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -71607,7 +71607,7 @@ GameObject:
   - component: {fileID: 1938595547}
   m_Layer: 0
   m_Name: Finish (1)
-  m_TagString: Finish
+  m_TagString: Stage2_door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
