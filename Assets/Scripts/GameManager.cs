@@ -132,10 +132,10 @@ public class GameManager : MonoBehaviour
         player.VelocityZero();
     }
 
-    public void Restart()
+    public void GoBadEnding()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene("BadEnding");
     }
 }
 

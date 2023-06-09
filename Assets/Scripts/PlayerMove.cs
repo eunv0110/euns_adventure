@@ -246,7 +246,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Stage2_door"))
         {
-            transform.position = new Vector3(-9.59f, 1.31f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
+            transform.position = new Vector3(0.08f, 1.68f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
 
         }
         else if (collision.gameObject.CompareTag("Secret_Wall"))
