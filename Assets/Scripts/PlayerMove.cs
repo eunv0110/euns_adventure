@@ -280,18 +280,15 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("BossSFinish"))
         {
             SceneManager.LoadScene("BadEnding");
-
         }
 
         else if (collision.gameObject.CompareTag("BossMFinish"))
         {
             SceneManager.LoadScene("NormalEnding");
-
         }
         else if (collision.gameObject.CompareTag("BossLFinish"))
         {
             SceneManager.LoadScene("GoodEnding");
-
         }
 
 

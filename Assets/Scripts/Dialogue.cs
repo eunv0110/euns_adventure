@@ -46,8 +46,6 @@ public class Dialogue : MonoBehaviour
 
         Endings[EndingIdx].SetActive(true);
 
-    
-
         if (EndingIdx == 0)
         {
             texts = new string[5];
@@ -117,7 +115,6 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Debug.Log(texts.Length);
         if (Input.GetMouseButtonDown(0) && clickCount < texts.Length)
         {
             if (clickCount2 == 0)
