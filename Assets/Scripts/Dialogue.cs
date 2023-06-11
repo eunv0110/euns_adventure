@@ -98,7 +98,6 @@ public class Dialogue : MonoBehaviour
 
     public void SecretRoom()
     {
-        //Debug.Log("dia ????");
         DialogPanel.SetActive(true);
 
         texts = new string[1];
@@ -109,7 +108,6 @@ public class Dialogue : MonoBehaviour
             StartCoroutine(Typing(texts[0]));
         clickCount2 = 1;
         clickCount++;
-        //DialogPanel.SetActive(false);
     }
 
     // Update is called once per frame
@@ -159,7 +157,6 @@ public class Dialogue : MonoBehaviour
                 if (i == message.Length - 1)
                 {
                     clickCount2 = 0;
-                    //Debug.Log("clickCount2==1");
                 }
                 yield return null;
             }
