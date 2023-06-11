@@ -188,9 +188,8 @@ public class EnemyMove : MonoBehaviour
             Debug.Log(ran2);
             int dirc = transform.position.x - ran2 > 0 ? 1 : -1;
             rigid.AddForce(new Vector2(ran2,1)*1, ForceMode2D.Impulse);
-            Instantiate(key, transform.position + new Vector3(dirc,1,1), lifeItem.transform.rotation);
+            Instantiate(key, transform.position + new Vector3(dirc,1,1), key.transform.rotation);
         }
-
         if (ran < 3) //10%
         {
             Instantiate(lifeItem, transform.position, lifeItem.transform.rotation);
