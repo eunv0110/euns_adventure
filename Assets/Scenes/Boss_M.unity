@@ -11891,6 +11891,11 @@ MonoBehaviour:
   DialogPanel: {fileID: 515898786}
   playerMove: {fileID: 0}
   playerObject: {fileID: 0}
+--- !u!4 &693248708 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 2864638317943508983, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+  m_PrefabInstance: {fileID: 972736853}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &739384012
 GameObject:
   m_ObjectHideFlags: 0
@@ -12180,6 +12185,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2864638317943508976, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+      propertyPath: m_BodyType
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 2864638317943508978, guid: eab14a76c21ab794f830ece562476c05, type: 3}
       propertyPath: m_Name
       value: M
@@ -12188,6 +12197,10 @@ PrefabInstance:
       propertyPath: playerPos
       value: 
       objectReference: {fileID: 427549756}
+    - target: {fileID: 2864638317943508980, guid: eab14a76c21ab794f830ece562476c05, type: 3}
+      propertyPath: ShotPosition
+      value: 
+      objectReference: {fileID: 693248708}
     - target: {fileID: 2864638317943508980, guid: eab14a76c21ab794f830ece562476c05, type: 3}
       propertyPath: playerObject
       value: 
