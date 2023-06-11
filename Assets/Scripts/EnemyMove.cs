@@ -181,7 +181,7 @@ public class EnemyMove : MonoBehaviour
             Debug.Log("Not Item");
         }*/
 
-        if (ran < 10) //10%
+        if (ran < 10) //100%
         { //key는 무조건 하나씩 나오게
             int ran2 = Random.Range(1, 10);
             Debug.Log(ran2);
@@ -189,7 +189,7 @@ public class EnemyMove : MonoBehaviour
             rigid.AddForce(new Vector2(ran2,1)*1, ForceMode2D.Impulse);
             Instantiate(key, transform.position + new Vector3(dirc,1,1), key.transform.rotation);
         }
-        if (ran < 3) //20%
+        if (ran < 3) //30%
         {
             Instantiate(lifeItem, transform.position, lifeItem.transform.rotation);
         }
