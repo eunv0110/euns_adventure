@@ -57,7 +57,7 @@ public class BulletMove : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (playerAttack.skill == 2)
+        if (playerAttack.skill == 2&& gameObject.CompareTag("Playerbullet"))
         {
             if(playerMove.direction == 1)
             //transform.Translate(new Vector2(1,1));
@@ -69,7 +69,7 @@ public class BulletMove : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bossbullet")
+        if (collision.gameObject.tag == "Playerbullet")
         {
             Destroy(gameObject);
         }

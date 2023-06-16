@@ -186,9 +186,16 @@ public class BossMove : MonoBehaviour
 
         GameObject bullet = Instantiate(bulletObj);
 
+        Vector3 direction = playerPos.position - transform.position;
+
+        //?????? ?????? ????
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        //???? ???? ???????? ????????.
+        bullet.transform.rotation = Quaternion.Euler(0, 0, angle);
         bullet.transform.position = ShotPosition.position;
 
-        bullet.transform.rotation = ShotPosition.rotation;
+        //bullet.transform.rotation = ShotPosition.rotation;
 
         Destroy(bullet, 3f);
 
@@ -236,19 +243,19 @@ public class BossMove : MonoBehaviour
 
         Debug.Log("4");
 
-        //360번 반복
-        for (int i = 0; i < 360; i += 13)
+        //360?? ????
+        for (int i = 0; i < 360; i += 30)
         {
-            //총알 생성
+            //???? ????
             GameObject temp = Instantiate(bulletObj);
 
-            //2초마다 삭제
+            //2?????? ????
             Destroy(temp, 2f);
 
-            //총알 생성 위치를 ShotPosition 좌표로 한다.
+            //???? ???? ?????? ShotPosition ?????? ????.
             temp.transform.position = ShotPosition.position;
 
-            //Z에 값이 변해야 회전이 이루어지므로, Z에 i를 대입한다.
+            //Z?? ???? ?????? ?????? ????????????, Z?? i?? ????????.
             temp.transform.rotation = Quaternion.Euler(0, 0, i);
         }
 
@@ -269,10 +276,11 @@ public class BossMove : MonoBehaviour
         PlaySound("DAMAGED");
         if (health <= 0)
         {
-            Destroy(gameObject);
+            
             playerObject.GetComponent<PlayerMove>().bossDie = true;
             playerObject.GetComponent<PlayerMove>().BossFinish();
             PlaySound("DIE");
+            Destroy(gameObject);
         }
     }
 
@@ -286,7 +294,7 @@ public class BossMove : MonoBehaviour
     {
         if (collision.gameObject.tag == "Playerbullet")
         {
-            //BulletMove에서 총알의 위력을 설정하면 (int dmg)
+            //BulletMove???? ?????? ?????? ???????? (int dmg)
             //BulletMove bullet = collision.gameObject.GetComponent<BulletMove>();
             //OnHit(bullet.dmg);
             OnDamaged(1);

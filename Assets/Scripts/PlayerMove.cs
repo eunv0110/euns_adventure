@@ -12,6 +12,7 @@ public class PlayerMove : MonoBehaviour
     public AudioClip audioItem;
     public AudioClip audioDie;
     public AudioClip audioFinish;
+    public AudioClip audioTileJump;
 
 
     public float maxSpeed;
@@ -215,29 +216,30 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("Jump"))
         {
             rigid.AddForce(Vector2.up * 70, ForceMode2D.Impulse);
+            PlaySound("TileJump");
 
         }
         else if (collision.gameObject.CompareTag("Jump_Tile"))
         {
             rigid.AddForce(Vector2.up * 30, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
         else if (collision.gameObject.CompareTag("Jump_Tile2"))
         {
             rigid.AddForce(Vector2.up * 80, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
 
         else if (collision.gameObject.CompareTag("Jump_Tile3"))
         {
             rigid.AddForce(Vector2.up * 50, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
 
         else if (collision.gameObject.CompareTag("Super_Jump"))
         {
             rigid.AddForce(Vector2.up * 100, ForceMode2D.Impulse);
-
+            PlaySound("TileJump");
         }
         else if (collision.gameObject.CompareTag("Fake_door"))
         {
@@ -246,7 +248,7 @@ public class PlayerMove : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag("Stage2_door"))
         {
-            transform.position = new Vector3(0.1f, 2.11f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
+            transform.position = new Vector3(0.08f, 1.68f, 0); // x, y, z는 원하는 위치 값으로 대체해야 합니다.
 
         }
         else if (collision.gameObject.CompareTag("Secret_Wall"))
@@ -278,18 +280,15 @@ public class PlayerMove : MonoBehaviour
         else if (collision.gameObject.CompareTag("BossSFinish"))
         {
             SceneManager.LoadScene("BadEnding");
-
         }
 
         else if (collision.gameObject.CompareTag("BossMFinish"))
         {
             SceneManager.LoadScene("NormalEnding");
-
         }
         else if (collision.gameObject.CompareTag("BossLFinish"))
         {
             SceneManager.LoadScene("GoodEnding");
-
         }
 
 
@@ -417,6 +416,9 @@ public class PlayerMove : MonoBehaviour
                 break;
             case "FINISH":
                 audioSource.clip = audioFinish;
+                break;
+            case "TileJump":
+                audioSource.clip = audioTileJump;
                 break;
         }
         audioSource.Play();
